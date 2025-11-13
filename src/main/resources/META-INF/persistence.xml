@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="simple-persistence-unit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>ar.edu.utn.frba.dds.model.entities.Hecho</class>
+        <class>ar.edu.utn.frba.dds.model.entities.Coleccion</class>
+
+        <class>ar.edu.utn.frba.dds.model.entities.fuentes.Agregador</class>
+        <class>ar.edu.utn.frba.dds.model.entities.fuentes.Fuente</class>
+        <class>ar.edu.utn.frba.dds.model.entities.fuentes.FuenteApi</class>
+        <class>ar.edu.utn.frba.dds.model.entities.fuentes.FuenteDataSet</class>
+        <class>ar.edu.utn.frba.dds.model.entities.fuentes.FuenteDinamica</class>
+
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioBase</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.Criterio</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioCategoria</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioDescripcion</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioFecha</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioFechaCarga</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioRangoFechas</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioTitulo</class>
+        <class>ar.edu.utn.frba.dds.model.entities.criterios.CriterioUbicacion</class>
+
+        <class>ar.edu.utn.frba.dds.model.entities.solicitudes.SolicitudDeCarga</class>
+        <class>ar.edu.utn.frba.dds.model.entities.solicitudes.SolicitudDeEliminacion</class>
+
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <!-- host.docker.internal permite que un contenedor Docker acceda a tu host -->
+            <property
+                    name="hibernate.connection.url"
+                    value="jdbc:mysql://host.docker.internal:3306/pruebatp?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"
+            />
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+
+            <!--property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/-->
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.search.default.directory_provider" value="filesystem"/>
+            <property name="hibernate.search.default.indexBase" value="./indexes"/>
+            <property name="hibernate.search.lucene_version" value="LUCENE_36"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

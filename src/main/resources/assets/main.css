@@ -1,0 +1,318 @@
+/* --- Reset global --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Layout base --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Contenedor principal --- */
+.container {
+    width: 100%;
+    max-width: 1300px;
+    background: white;
+    border-radius: 16px;
+    margin: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Encabezado --- */
+header.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+header.page-header h1 {
+    color: #667eea;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+header nav a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+header nav a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* --- Texto principal --- */
+.page-message {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* --- Botones --- */
+.btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);
+}
+
+.btn-admin {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.btn-admin:hover {
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+/* --- Secciones --- */
+.user-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.admin-section {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+}
+
+/* --- Mapa --- */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#map {
+    height: 65vh;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mapa-leyenda {
+    background: #fff;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    align-self: flex-start;
+}
+
+/* --- Separadores --- */
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 25px 0;
+}
+
+/* --- Textos utilitarios --- */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 20px; }
+
+/* --- Mensajes --- */
+.flash {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.flash.success {
+    background-color: #f0fff4;
+    color: #22543d;
+    border: 1px solid #9ae6b4;
+}
+
+.flash.error {
+    background-color: #fff5f5;
+    color: #c53030;
+    border: 1px solid #fc8181;
+}
+
+/* --- RESPONSIVE --- */
+
+/* Laptops y tablets horizontales */
+@media (max-width: 1024px) {
+    .container { max-width: 90%; padding: 25px; }
+    header.page-header h1 { font-size: 26px; }
+    #map { height: 60vh; }
+    .btn { min-width: 180px; }
+}
+
+/* Tablets verticales y celulares grandes */
+@media (max-width: 768px) {
+    body { justify-content: flex-start; padding: 10px; }
+    .container {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 20px;
+    }
+    header.page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    header nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .user-section {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+    #map { height: 50vh; }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    header.page-header h1 {
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+    }
+    .container { padding: 15px; }
+    .mapa-leyenda {
+        font-size: 13px;
+        text-align: center;
+    }
+    #map { height: 45vh; }
+    .btn {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+/* --- Estilos específicos de búsqueda de hechos --- */
+.search-form {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.form-group input {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+/* --- Botones personalizados --- */
+.btn-buscar {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-buscar:hover {
+    background: #5a67d8;
+}
+
+.btn-limpiar {
+    background: #f3f4f6;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.btn-limpiar:hover {
+    background: #e5e7eb;
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-buscar, .btn-limpiar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

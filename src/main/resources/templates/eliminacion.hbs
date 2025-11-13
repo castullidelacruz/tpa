@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>{{titulo}}</h1>
+
+    {{#if flash_error}}
+      <div class="alert alert-error">
+        ⚠️ {{flash_error}}
+      </div>
+    {{/if}}
+
+    <p>
+      Estás solicitando la eliminación del siguiente hecho:
+    </p>
+
+    <div class="hecho-card">
+      <p><strong>ID:</strong> {{hecho.id}}</p>
+      <p><strong>Título:</strong> {{hecho.titulo}}</p>
+      <p><strong>Categoría:</strong> {{hecho.categoria}}</p>
+      <p><strong>Descripción:</strong> {{hecho.descripcion}}</p>
+      <p><strong>Fecha de acontecimiento:</strong> {{hecho.fechaAcontecimiento}}</p>
+    </div>
+
+    <form action="/solicitudes" method="post">
+      <input type="hidden" name="hechoId" value="{{hechoId}}">
+
+      <div class="form-group">
+        <label for="motivo"><strong>Motivo de la solicitud:</strong></label>
+        <textarea id="motivo" name="motivo" rows="5" maxlength="500" required
+                  placeholder="Explica brevemente por qué debería eliminarse este hecho..."></textarea>
+      </div>
+
+      <button type="submit" class="btn">Enviar Solicitud</button>
+    </form>
+
+    <p class="mt-2">
+      <a href="/home">⬅️ Volver al inicio</a>
+    </p>
+  </div>
+</body>
+</html>

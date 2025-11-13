@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Provincia maxima de cada Coleccion</title>
+    <link rel="stylesheet" href="/assets/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+    {{> templates/dashboard/_sidebar}}
+
+    <main class="main-content">
+        <header class="main-header">
+            <h1>La provincia con mayor cantidad de Hechos</h1>
+        </header>
+
+        <section class="solicitudes-lista">
+
+            <h2>Coleccion Provincia Maxima</h2>
+            <table class="tabla tabla-bordered">
+            <thead><tr><th>Fecha</th><th>Coleccion</th><th>Provincia</th><th>Cantidad de hechos</th></tr></thead>
+            <tbody>
+            {{#each reporte}}
+                        <tr>
+                            <td class="text-center">{{fecha}}</td>
+                            <td class="text-center">{{this.coleccion}}</td>
+                            <td class="text-center">{{this.provincia}}</td>
+                            <td class="text-center">{{this.cantidad}}</td>
+                        </tr>
+            {{/each}}
+            </tbody>
+            </table>
+
+            <h3>Exportar Archivo</h3>
+                <a class="btn" href="/descargar/estadisticas_coleccion_hechosmaximos.csv" download>Exportar CSV<a/>
+
+        </section>
+
+    </main>
+</div>
+</body>
+</html>

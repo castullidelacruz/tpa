@@ -31,13 +31,6 @@
 
 
         <properties>
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>            <!-- host.docker.internal permite que un contenedor Docker acceda a tu host -->
-            <property
-                    name="hibernate.connection.url"
-                    value="${JDBC_DATABASE_URL}"
-            />
-            <property name="hibernate.connection.username" value="${DB_USER}"/>
-            <property name="hibernate.connection.password" value="${DB_PASSWORD}"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
 
             <!--property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>

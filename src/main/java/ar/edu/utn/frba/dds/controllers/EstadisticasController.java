@@ -50,6 +50,13 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
 
   public static Map<String, Object> mostrarHoraPico(Context ctx) throws IOException {
     repoC.consesuareEchos();
+
+    String path = "descargar";
+    File carpeta = new File(path);
+    if (!carpeta.exists()) {
+      boolean creada = carpeta.mkdirs();
+    }
+
     EstadisticaHoraHechosCategoria estadisticaHhc =
         ComponenteEstadistico.getInstance()
             .getEstadistica(EstadisticaHoraHechosCategoria.class);
@@ -71,6 +78,13 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
 
   public static Map<String, Object> mostrarCategoriaMaxima(Context ctx) throws IOException {
     repoC.consesuareEchos();
+
+    String path = "descargar";
+    File carpeta = new File(path);
+    if (!carpeta.exists()) {
+      boolean creada = carpeta.mkdirs();
+    }
+
     EstadisticaCategoriaMaxima estadisticaCm = new EstadisticaCategoriaMaxima();
     estadisticaCm.calcularEstadistica();
 
@@ -90,6 +104,13 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
   public static Map<String, Object> mostrarCategoriaProvinciaMaxHechos(Context ctx)
       throws IOException {
     repoC.consesuareEchos();
+
+    String path = "descargar";
+    File carpeta = new File(path);
+    if (!carpeta.exists()) {
+      boolean creada = carpeta.mkdirs();
+    }
+
     EstadisticaProvMaxHechosCategoria estadisticaPmhCat = new EstadisticaProvMaxHechosCategoria();
     estadisticaPmhCat.calcularEstadistica();
 
@@ -109,6 +130,13 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
   public static Map<String, Object> mostrarColeccionProvinciaMaxHechos(Context ctx)
       throws IOException {
     repoC.consesuareEchos();
+
+    String path = "descargar";
+    File carpeta = new File(path);
+    if (!carpeta.exists()) {
+      boolean creada = carpeta.mkdirs();
+    }
+
     EstadisticaProvMaxHechosColeccion estadisticaPmhCol = new EstadisticaProvMaxHechosColeccion();
     estadisticaPmhCol.calcularEstadistica();
 

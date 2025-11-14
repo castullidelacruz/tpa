@@ -34,12 +34,14 @@ public class Server {
   }
 
   private void configureDatabase() {
-    Map<String, String> env = System.getenv();
+    String dbUrl = System.getenv("JDBC_DATABASE_URL");
+    if (dbUrl == null || dbUrl.isBlank()) {
+      throw new RuntimeException("DATABASE_URL is not set! Configure it in Render.");
+    }
 
-    System.setProperty("hibernate.connection.url", env.get("JDBC_DATABASE_URL"));
-    System.setProperty("hibernate.connection.username", env.get("DB_USER"));
-    System.setProperty("hibernate.connection.password", env.get("DB_PASSWORD"));
+    System.setProperty("hibernate.connection.url", dbUrl);
     System.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
+    System.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
   }
 
 

@@ -111,13 +111,7 @@
                       <li>📍 Lat: {{this.latitud}}, Lon: {{this.longitud}}</li>
                       <li>📅 {{this.fechaAcontecimiento}}</li>
                       {{#if this.urlMultimedia}}
-                        <div class="multimedia-preview mb-2">
-                            {{#if (contains this.urlMultimedia "mp4")}}
-                              <video src="{{this.urlMultimedia}}" controls style="width:100%; border-radius:6px;"></video>
-                            {{else}}
-                              <img src="{{this.urlMultimedia}}" alt="Multimedia" style="width:100%; height:auto; border-radius:6px;">
-                            {{/if}}
-                          </div>
+                        <li>📎 <a href="{{this.urlMultimedia}}" target="_blank">Ver multimedia</a></li>
                       {{/if}}
                     </ul>
                   </div>

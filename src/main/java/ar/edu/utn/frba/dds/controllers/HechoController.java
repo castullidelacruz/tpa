@@ -150,8 +150,6 @@ public class HechoController implements WithSimplePersistenceUnit {
     File uploadDir = new File(UPLOAD_DIR);
     if (!uploadDir.exists()) {
       uploadDir.mkdirs();
-    } else {
-      throw new IOException( "No se pudo crear el directorio de subida: ");
     }
 
     String extension = "";

@@ -12,6 +12,7 @@ import io.javalin.http.Context;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.io.File;
 
 
 public class EstadisticasController implements WithSimplePersistenceUnit {
@@ -24,6 +25,13 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
   // --- Mostrar Estadisticas ---
   public static Map<String, Object> mostrarSpam(Context ctx) throws IOException {
     repoC.consesuareEchos();
+    
+    String path = "descargar";
+    File carpeta = new File(path);
+    if (!carpeta.exists()) {
+      boolean creada = carpeta.mkdirs();
+    }
+    
     EstadisticaCantidadSpam estadisticaSpam = new EstadisticaCantidadSpam();
     estadisticaSpam.calcularEstadistica();
     estadisticaSpam.exportarEstadistica("descargar/estadisticas_cantidad_spam.csv");

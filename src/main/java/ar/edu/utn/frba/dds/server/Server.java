@@ -19,7 +19,6 @@ public class Server {
   );
 
   public void start() {
-    configureDatabase();
     Bootstrap.init();
     var app = Javalin.create(config -> {
       initializeStaticFiles(config);
@@ -32,13 +31,6 @@ public class Server {
     app.start(port);
 
   }
-
-  private void configureDatabase() {
-    System.setProperty("hibernate.connection.url", "jdbc:postgresql://dpg-d4b6jih5pdvs73ckbm8g-a.oregon-postgres.render.com:5432/pruebatp?user=admin&password=2Hf5z9zvIQItAx3n5HDZQh2kY5JHbAxH");
-    System.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
-    System.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-  }
-
 
   private void initializeSecurity(Javalin app) {
 

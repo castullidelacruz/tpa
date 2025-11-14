@@ -39,7 +39,7 @@ public class HechoController implements WithSimplePersistenceUnit {
   private final RepositorioHechos repoHechos = RepositorioHechos.getInstance();
   private final DetectorDeSpam detectorDeSpam = new DetectorDeSpamInteligente();
 
-  private static final String UPLOAD_DIR = "uploads/uploads";
+  private static final String UPLOAD_DIR = "uploads";
 
   // --- Mostrar formulario de creación de hecho ---
   public Map<String, Object> showCreationForm(@NotNull Context ctx) {
@@ -148,10 +148,10 @@ public class HechoController implements WithSimplePersistenceUnit {
   // --- Guardar archivo subido ---
   private String saveUploadedFile(@NotNull UploadedFile file) throws IOException {
     File uploadDir = new File(UPLOAD_DIR);
-    if (!uploadDir.exists() && !uploadDir.mkdirs()) {
-      throw new IOException(
-          "No se pudo crear el directorio de subida: " + uploadDir.getAbsolutePath()
-      );
+    if (!uploadDir.exists()) {
+      uploadDir.mkdirs();
+    } else {
+      throw new IOException( "No se pudo crear el directorio de subida: ");
     }
 
     String extension = "";
@@ -167,7 +167,7 @@ public class HechoController implements WithSimplePersistenceUnit {
       file.content().transferTo(outputStream);
     }
 
-    return "/uploads/uploads/" + uniqueName;
+    return "/uploads/" + uniqueName;
   }
 
   // --- Formulario de búsqueda ---

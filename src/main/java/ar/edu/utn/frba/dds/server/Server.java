@@ -34,9 +34,18 @@ public class Server {
   }
 
   private void configureDatabase() {
+    System.out.println("=== VARIABLES DISPONIBLES ===");
+    System.getenv().forEach((k, v) -> {
+      if (k.contains("DB") || k.contains("JDBC"))
+        System.out.println(k + " = " + v);
+    });
+
     String dbUrl = System.getenv("JDBC_DATABASE_URL");
+
+    System.out.println(">>> JDBC_DATABASE_URL = " + dbUrl);
+
     if (dbUrl == null || dbUrl.isBlank()) {
-      throw new RuntimeException("DATABASE_URL is not set! Configure it in Render.");
+      throw new RuntimeException("JDBC_DATABASE_URL is not set in Render.");
     }
 
     System.setProperty("hibernate.connection.url", dbUrl);

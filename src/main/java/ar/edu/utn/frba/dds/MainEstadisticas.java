@@ -7,10 +7,12 @@ import ar.edu.utn.frba.dds.model.estadistica.EstadisticaCategoriaMaxima;
 import ar.edu.utn.frba.dds.model.estadistica.EstadisticaHoraHechosCategoria;
 import ar.edu.utn.frba.dds.model.estadistica.EstadisticaProvMaxHechosCategoria;
 import ar.edu.utn.frba.dds.model.estadistica.EstadisticaProvMaxHechosColeccion;
+import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainEstadisticas {
+public class MainEstadisticas implements WithSimplePersistenceUnit {
   public static void main(String[] args) {
 
     EstadisticaCategoriaMaxima estadisticaCm =

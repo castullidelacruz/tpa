@@ -57,7 +57,7 @@ public class Router {
             solicitudController.showResultado(ctx)));
 
     // DASHBOARD
-    app.get("/dashboard", ctx -> ctx.render("/dashboard/dashboard.hbs"));
+    app.get("/dashboard", ctx -> ctx.render("dashboard.hbs"));
     app.get("/dashboard/solicitudes",
         gestionSolicitudesController::mostrarSolicitudes);
     app.post("solicitud/carga/{id}/aceptar",
@@ -83,19 +83,19 @@ public class Router {
 
     //Estadisticas
     app.get("/dashboard/estadisticas/cantidadSpam", ctx -> ctx.render(
-        "dashboard/estadisticaSpam.hbs",
+        "estadisticaSpam.hbs",
         EstadisticasController.mostrarSpam(ctx)));
     app.get("/dashboard/estadisticas/horaPicoCategoria", ctx -> ctx.render(
-        "dashboard/estadisticaHoraPico.hbs",
+        "estadisticaHoraPico.hbs",
         EstadisticasController.mostrarHoraPico(ctx)));
     app.get("/dashboard/estadisticas/categoriaMaxima", ctx -> ctx.render(
-        "dashboard/estadisticaCategoriaMaxima.hbs",
+        "estadisticaCategoriaMaxima.hbs",
         EstadisticasController.mostrarCategoriaMaxima(ctx)));
     app.get("/dashboard/estadisticas/categoriaProvinciaMax", ctx -> ctx.render(
-        "dashboard/estadisticaCategoriaProvinciaMax.hbs",
+        "estadisticaCategoriaProvinciaMax.hbs",
         EstadisticasController.mostrarCategoriaProvinciaMaxHechos(ctx)));
     app.get("/dashboard/estadisticas/coleccionProvinciaMax", ctx -> ctx.render(
-        "dashboard/estadisticaColeccionProvinciaMax.hbs",
+        "estadisticaColeccionProvinciaMax.hbs",
         EstadisticasController.mostrarColeccionProvinciaMaxHechos(ctx)));
 
     //Descargas

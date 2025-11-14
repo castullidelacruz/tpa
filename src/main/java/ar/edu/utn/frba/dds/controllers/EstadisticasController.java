@@ -24,8 +24,6 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
 
   // --- Mostrar Estadisticas ---
   public static Map<String, Object> mostrarSpam(Context ctx) throws IOException {
-    repoC.consesuareEchos();
-    
     String path = "descargar";
     File carpeta = new File(path);
     if (!carpeta.exists()) {
@@ -49,8 +47,6 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
   }
 
   public static Map<String, Object> mostrarHoraPico(Context ctx) throws IOException {
-    repoC.consesuareEchos();
-
     String path = "descargar";
     File carpeta = new File(path);
     if (!carpeta.exists()) {
@@ -77,8 +73,6 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
   }
 
   public static Map<String, Object> mostrarCategoriaMaxima(Context ctx) throws IOException {
-    repoC.consesuareEchos();
-
     String path = "descargar";
     File carpeta = new File(path);
     if (!carpeta.exists()) {
@@ -103,8 +97,6 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
 
   public static Map<String, Object> mostrarCategoriaProvinciaMaxHechos(Context ctx)
       throws IOException {
-    repoC.consesuareEchos();
-
     String path = "descargar";
     File carpeta = new File(path);
     if (!carpeta.exists()) {
@@ -129,8 +121,6 @@ public class EstadisticasController implements WithSimplePersistenceUnit {
 
   public static Map<String, Object> mostrarColeccionProvinciaMaxHechos(Context ctx)
       throws IOException {
-    repoC.consesuareEchos();
-
     String path = "descargar";
     File carpeta = new File(path);
     if (!carpeta.exists()) {

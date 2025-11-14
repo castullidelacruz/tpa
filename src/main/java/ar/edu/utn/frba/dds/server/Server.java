@@ -14,6 +14,7 @@ public class Server {
   private static final GestorTokens gestorTokens = new GestorTokens();
 
   private static final List<String> protectedPaths = List.of(
+      "/dashboard",
       "/descargar"
   );
 

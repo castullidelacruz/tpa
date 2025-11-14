@@ -34,21 +34,7 @@ public class Server {
   }
 
   private void configureDatabase() {
-    System.out.println("=== VARIABLES DISPONIBLES ===");
-    System.getenv().forEach((k, v) -> {
-      if (k.contains("DB") || k.contains("JDBC"))
-        System.out.println(k + " = " + v);
-    });
-
-    String dbUrl = System.getenv("JDBC_DATABASE_URL");
-
-    System.out.println(">>> JDBC_DATABASE_URL = " + dbUrl);
-
-    if (dbUrl == null || dbUrl.isBlank()) {
-      throw new RuntimeException("JDBC_DATABASE_URL is not set in Render.");
-    }
-
-    System.setProperty("hibernate.connection.url", dbUrl);
+    System.setProperty("hibernate.connection.url", "jdbc:postgresql://dpg-d4b6jih5pdvs73ckbm8g-a.oregon-postgres.render.com:5432/pruebatp?user=admin&password=2Hf5z9zvIQItAx3n5HDZQh2kY5JHbAxH");
     System.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
     System.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
   }
